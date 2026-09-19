@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap");
+
+@import "tailwindcss";
+
+:root {
+  --bg: #f5f5f3;
+  --ink: #111111;
+  --muted: #6a6a6a;
+  --line: #e7e7e4;
+  --white: #ffffff;
+  --soft: #ecece8;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-soft: var(--soft);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Archivo", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.prose-faseelh {
+  color: #3a3a3a;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.prose-faseelh h1,
+.prose-faseelh h2,
+.prose-faseelh h3 {
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  margin: 2rem 0 0.85rem;
+}
+
+.prose-faseelh h1 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.prose-faseelh h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+}
+
+.prose-faseelh h3 {
+  font-size: 1.2rem;
+}
+
+.prose-faseelh p,
+.prose-faseelh ul {
+  margin: 0 0 1rem;
+}
+
+.prose-faseelh ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.prose-faseelh a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-faseelh blockquote {
+  margin: 1.5rem 0;
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  border-left: 2px solid var(--ink);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.apple-blur {
+  pointer-events: none;
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 30;
+  height: 156px;
+}
+
+.apple-blur__layer {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  opacity: 0.55;
+  mask-image: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.5) 38%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.5) 38%, transparent 100%);
+}
+
+@media (min-width: 768px) {
+  .apple-blur {
+    height: 188px;
+  }
+}
