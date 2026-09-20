@@ -4,46 +4,58 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button, SectionLabel } from "@/components/ui";
 import { ReelStack } from "@/components/ImageCompare";
-import { AwardRow, ProgramsCarousel } from "@/components/ProgramsCarousel";
+import { ProjectsCarousel, TimelineRow } from "@/components/Projects";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
-import { Faqs, Pricing, Testimonials } from "@/components/Sections";
-import { aboutStats, images } from "@/data/site";
-import { awards, posts } from "@/data/content";
+import { Faqs, Principles, Services } from "@/components/Sections";
+import { aboutStats, certifications, images, site } from "@/data/site";
+import { education, experiences, posts } from "@/data/content";
 
 export default function HomePage() {
+  const school = education[0];
+
   return (
     <>
       <section className="px-4 pb-8 pt-2 md:px-6">
         <div className="relative overflow-hidden rounded-[32px] md:rounded-[40px]">
           <img src={images.hero} alt="" className="h-[64vh] min-h-[520px] w-full object-cover object-[center_35%]" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-ink">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-[11px] uppercase tracking-[0.22em] text-[#4d4d4d]"
+            >
+              {site.name}
+            </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              className="max-w-4xl text-5xl font-medium tracking-tight md:text-7xl"
+              transition={{ delay: 0.06 }}
+              className="mt-4 max-w-4xl text-5xl font-medium tracking-tight md:text-7xl"
             >
-              A Greener Tomorrow
+              Backend Developer
               <br />
-              Starts With Us
+              Building Practical Systems
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.12 }}
               className="mt-5 max-w-2xl text-sm leading-6 text-[#4d4d4d] md:text-base"
             >
-              Our platform unites people, organizations, and local governments to bring nature back
-              to cities, offset emissions, and create spaces where both communities and ecosystems
-              thrive.
+              Computer science student at Acadia University building Django and REST backends, AI
+              agent pipelines, and data tools. Currently open to co-op and internship terms.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.18 }}
-              className="mt-7"
+              className="mt-7 flex flex-col items-center gap-3 sm:flex-row"
             >
               <Button href="/contact" variant="light">
-                Get Started
+                Get in touch
+              </Button>
+              <Button href={site.resumeHref} variant="ghost">
+                Download resume
               </Button>
             </motion.div>
           </div>
@@ -52,7 +64,7 @@ export default function HomePage() {
 
       <section id="about" className="mx-auto max-w-[1280px] px-5 pt-8 pb-16 md:px-8 md:pt-10 md:pb-24">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[180px_1fr_1fr_1fr] lg:items-start lg:gap-8">
-          <SectionLabel>About us</SectionLabel>
+          <SectionLabel>About me</SectionLabel>
           {aboutStats.map((item) => (
             <div key={item.n} className="min-w-0">
               <p className="text-[28px] leading-none text-[#c8c8c8] md:text-[34px]">{item.n}</p>
@@ -64,64 +76,109 @@ export default function HomePage() {
         </div>
         <div className="mt-16 max-w-xl lg:ml-[180px]">
           <p className="text-lg leading-8 text-muted">
-            By combining environmental science with digital tools our platform makes it easy to
-            join greening initiatives, track impact in real-time, and contribute to a sustainable
-            future.
+            I am a computer science student at Acadia University in Wolfville, Nova Scotia. I teach
+            data structures and algorithms, work the university IT service desk, and spend the rest
+            of my time building Django backends and data tools that answer a real question.
           </p>
           <div className="mt-8">
-            <Button href="/contact">Get Started</Button>
+            <Button href="/contact">Get in touch</Button>
           </div>
         </div>
         <div className="mt-16 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <h2 className="text-4xl font-medium tracking-tight md:text-6xl">
-            Technology Meets Nature Restoration
+            Teaching Algorithms, Shipping Backends
           </h2>
           <ReelStack />
         </div>
       </section>
 
-      <ProgramsCarousel />
+      <ProjectsCarousel />
       <WhyChooseUs />
 
-      <section className="mx-auto max-w-[1280px] px-5 py-16 md:px-8 md:py-24">
+      <section id="experience" className="mx-auto max-w-[1280px] px-5 py-16 md:px-8 md:py-24">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <SectionLabel>Awards</SectionLabel>
+            <SectionLabel>Experience</SectionLabel>
             <h2 className="mt-5 max-w-3xl text-4xl font-medium tracking-tight md:text-6xl">
-              Celebrating Our Collective Achievements
+              Where I Have Been Working
             </h2>
           </div>
-          <Button href="/awards" variant="ghost">
-            See All Awards
+          <Button href="/experience" variant="ghost">
+            See All Roles
           </Button>
         </div>
         <div className="mt-8">
-          {awards.slice(0, 4).map((award) => (
-            <AwardRow
-              key={award.slug}
-              href={`/awards/${award.slug}`}
-              year={award.year}
-              title={award.title}
-              description={award.description}
+          {experiences.map((role) => (
+            <TimelineRow
+              key={role.slug}
+              href={`/experience/${role.slug}`}
+              meta={role.period}
+              title={role.role}
+              subtitle={`${role.company} · ${role.location}`}
+              description={role.description}
             />
           ))}
         </div>
       </section>
 
-      <Pricing />
-      <Testimonials />
+      <section id="education" className="mx-auto max-w-[1280px] px-5 py-16 md:px-8 md:py-24">
+        <SectionLabel>Education</SectionLabel>
+        <h2 className="mt-5 max-w-3xl text-4xl font-medium tracking-tight md:text-6xl">
+          Studying Computer Science at Acadia
+        </h2>
+        <div className="mt-8">
+          {education.map((item) => (
+            <TimelineRow
+              key={item.slug}
+              meta={item.period}
+              title={item.degree}
+              subtitle={`${item.school} · ${item.location}`}
+              description={item.description}
+            />
+          ))}
+        </div>
+        <div className="mt-10 grid gap-8 md:grid-cols-3">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-muted">Relevant coursework</p>
+            <ul className="mt-4 space-y-2 text-[15px] leading-6">
+              {school.coursework.map((course) => (
+                <li key={course}>{course}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-muted">Scholarships</p>
+            <ul className="mt-4 space-y-2 text-[15px] leading-6">
+              {school.scholarships.map((scholarship) => (
+                <li key={scholarship}>{scholarship}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-muted">Certification</p>
+            <ul className="mt-4 space-y-2 text-[15px] leading-6">
+              {certifications.map((certification) => (
+                <li key={certification}>{certification}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <Services />
+      <Principles />
       <Faqs />
 
       <section className="mx-auto max-w-[1280px] px-5 py-16 md:px-8 md:py-24">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <SectionLabel>Blog</SectionLabel>
+            <SectionLabel>Notes</SectionLabel>
             <h2 className="mt-5 max-w-3xl text-4xl font-medium tracking-tight md:text-6xl">
-              Latest from the Faseelh Journal
+              Things I Have Been Working On
             </h2>
           </div>
           <Button href="/blog" variant="ghost">
-            See All Articles
+            See All Notes
           </Button>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">

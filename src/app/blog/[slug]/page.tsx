@@ -32,7 +32,7 @@ export default async function BlogPostPage({ params }: Props) {
         alt=""
         className="mt-10 h-[420px] w-full rounded-[32px] object-cover md:h-[560px]"
       />
-      <div className="prose-faseelh mx-auto mt-14 max-w-3xl" dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div className="prose-article mx-auto mt-14 max-w-3xl" dangerouslySetInnerHTML={{ __html: post.content }} />
       <div className="mt-20 grid gap-6 md:grid-cols-3">
         {related.map((item) => (
           <Link key={item.slug} href={`/blog/${item.slug}`}>

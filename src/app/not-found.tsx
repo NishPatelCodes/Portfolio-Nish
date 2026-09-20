@@ -9,7 +9,7 @@ export default function NotFound() {
         We couldn&apos;t find the page you were looking for
       </p>
       <div className="mt-8">
-        <Button href="/">Get Started</Button>
+        <Button href="/">Back to home</Button>
       </div>
     </div>
   );

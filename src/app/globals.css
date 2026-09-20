@@ -47,50 +47,50 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-.prose-faseelh {
+.prose-article {
   color: #3a3a3a;
   font-size: 1.05rem;
   line-height: 1.75;
 }
 
-.prose-faseelh h1,
-.prose-faseelh h2,
-.prose-faseelh h3 {
+.prose-article h1,
+.prose-article h2,
+.prose-article h3 {
   color: var(--ink);
   font-weight: 500;
   letter-spacing: -0.03em;
   margin: 2rem 0 0.85rem;
 }
 
-.prose-faseelh h1 {
+.prose-article h1 {
   font-size: clamp(2rem, 4vw, 3.4rem);
 }
 
-.prose-faseelh h2 {
+.prose-article h2 {
   font-size: clamp(1.5rem, 2.6vw, 2.1rem);
 }
 
-.prose-faseelh h3 {
+.prose-article h3 {
   font-size: 1.2rem;
 }
 
-.prose-faseelh p,
-.prose-faseelh ul {
+.prose-article p,
+.prose-article ul {
   margin: 0 0 1rem;
 }
 
-.prose-faseelh ul {
+.prose-article ul {
   padding-left: 1.2rem;
   list-style: disc;
 }
 
-.prose-faseelh a {
+.prose-article a {
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.prose-faseelh blockquote {
+.prose-article blockquote {
   margin: 1.5rem 0;
   padding: 0.2rem 0 0.2rem 1.2rem;
   border-left: 2px solid var(--ink);

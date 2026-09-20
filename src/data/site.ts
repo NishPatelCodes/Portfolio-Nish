@@ -16,143 +16,137 @@ export const images = {
 } as const;
 
 export const site = {
-  name: "Faseelh",
-  title: "Faseelh",
+  name: "Nish Patel",
+  short: "Nish",
+  title: "Nish Patel - Backend Developer",
+  role: "Backend Developer",
   description:
-    "A greener tomorrow starts with us. Faseelh unites people, organizations, and local governments to restore nature and measure real environmental impact.",
-  email: "support@framer.com",
-  phone: "+1 234 567 8910",
-  phoneHref: "tel:+12345678910",
-  emailHref: "mailto:support@framer.com",
+    "Computer science student at Acadia University building Django and REST backends, AI agent pipelines, and data tools. Open to co-op and internship roles.",
+  location: "Wolfville, Nova Scotia",
+  email: "itsnishpatel@gmail.com",
+  emailHref: "mailto:itsnishpatel@gmail.com",
+  phone: "+1 416 587 6140",
+  phoneHref: "tel:+14165876140",
+  resumeHref: "/resume.pdf",
+  githubHref: "https://github.com/NishPatelCodes",
+  linkedinHref: "https://www.linkedin.com/in/nish-patel-a99336343/",
   socials: [
-    { name: "Instagram", href: "https://www.instagram.com/" },
-    { name: "YouTube", href: "https://www.youtube.com/" },
-    { name: "LinkedIn", href: "https://www.linkedin.com/" },
-    { name: "X", href: "https://x.com/" },
+    { name: "GitHub", href: "https://github.com/NishPatelCodes" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/nish-patel-a99336343/" },
+    { name: "Email", href: "mailto:itsnishpatel@gmail.com" },
   ],
   nav: [
     { label: "About", href: "/#about" },
-    { label: "Programs", href: "/#programs" },
-    { label: "Awards", href: "/awards" },
-    { label: "Pricing", href: "/#pricing" },
-    { label: "Blog", href: "/blog" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Experience", href: "/experience" },
+    { label: "Education", href: "/#education" },
+    { label: "Services", href: "/#services" },
+    { label: "Notes", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;
 
-export const programs = [
-  {
-    title: "Rewilding the Highlands",
-    description:
-      "Restoring native forests across degraded landscapes to revive biodiversity and soil health.",
-    image: images.programWide,
-  },
-  {
-    title: "Urban Canopy Revival",
-    description:
-      "Bringing shade, cleaner air, and living green corridors back into dense city neighborhoods.",
-    image: images.programField,
-  },
-  {
-    title: "Coastal Mangrove Recovery",
-    description:
-      "Rebuilding shoreline ecosystems that protect communities, wildlife, and carbon-rich wetlands.",
-    image: images.programPortraitA,
-  },
+export const aboutStats = [
+  { n: "01.", text: "Around 300 algorithms assignments graded each term" },
+  { n: "02.", text: "Five production AI agent pipelines shipped at Wayfair" },
+  { n: "03.", text: "Meta Back-End Developer Professional Certificate" },
 ] as const;
 
 export const features = [
   {
-    title: "Verified Impact & Measurable Results",
-    description: "Access detailed reports that highlight tangible environmental achievements.",
+    title: "REST APIs Built With Django",
+    description:
+      "CRUD endpoints, authentication, and role-based access designed to stay readable as a project grows.",
   },
   {
-    title: "Collaboration Tools for Every Organization",
-    description: "Plan, track, and share your progress with ease using integrated dashboards.",
+    title: "Data Work That Answers Questions",
+    description:
+      "Pandas, NumPy, and SQL pipelines that turn raw spreadsheets and tables into something a team can act on.",
   },
   {
-    title: "Data-Backed Environmental Insights",
-    description: "Make informed decisions with analytics designed to measure real impact.",
+    title: "Support Experience Behind the Code",
+    description:
+      "Teaching and service desk work taught me to debug patiently and explain a fix in plain language.",
   },
 ] as const;
 
-export const aboutStats = [
-  { n: "01.", text: "Millions of trees restored and protected" },
-  { n: "02.", text: "Real-time, map-based progress tracking" },
-  { n: "03.", text: "Collaborations with on-ground communities" },
+export const skills = [
+  {
+    group: "Languages",
+    items: ["Python", "Java", "C", "JavaScript", "HTML/CSS", "SQL"],
+  },
+  {
+    group: "Focus areas",
+    items: ["Data structures & algorithms", "Data mining", "Machine learning"],
+  },
+  {
+    group: "Tools",
+    items: ["Git", "GitHub", "Docker", "n8n", "Vercel"],
+  },
+  {
+    group: "Spoken",
+    items: ["English", "Hindi", "Gujarati"],
+  },
 ] as const;
 
-export const pricing = [
+export const certifications = [
+  "Meta Back-End Developer Professional Certificate",
+  "LeetCode - 76 problems solved",
+] as const;
+
+export const services = [
   {
-    name: "Starter",
-    monthly: 0,
-    yearly: 0,
-    audience: "For individuals",
+    name: "Co-op & Internships",
+    audience: "For teams hiring a backend student",
     featured: false,
     features: [
-      "Track up to 3 projects",
-      "Core dashboard access",
-      "Email support",
-      "Community resources",
+      "Available for co-op and summer terms",
+      "Python, Django, and SQL day to day",
+      "Comfortable joining an existing codebase",
+      "Based in Nova Scotia, open to remote",
     ],
   },
   {
-    name: "Pro",
-    monthly: 24,
-    yearly: 20,
-    audience: "For growing teams",
+    name: "APIs & Django Systems",
+    audience: "For products that need a backend",
     featured: true,
     features: [
-      "Track unlimited projects",
-      "Advanced analytics dashboard",
-      "Priority email & chat support",
-      "Custom map embedding",
+      "REST APIs with Django and DRF",
+      "Authentication and role-based access",
+      "Relational schemas and CRUD flows",
+      "Deployment to a live domain",
     ],
   },
   {
-    name: "Enterprise",
-    monthly: 64,
-    yearly: 60,
-    audience: "For global initiatives",
+    name: "AI Agents & Automation",
+    audience: "For teams automating manual work",
     featured: false,
     features: [
-      "Team & multi-user access",
-      "Dedicated account manager",
-      "API & integration tools",
-      "Custom reporting and data export",
+      "Agent pipelines built in n8n on Docker",
+      "Google Gemini and HuggingFace models",
+      "Structured JSON output from prompts",
+      "Glue code between APIs and models",
     ],
   },
 ] as const;
 
-export const testimonials = [
+export const principles = [
   {
     quote:
-      "Before using Faseelh, we struggled to visualize the real results of our projects. Now, every seed we plant, every tree we restore, and every ton of carbon saved is tracked and displayed beautifully.",
-    name: "Amelia Hart",
-    role: "Director, Green Corridor Alliance",
+      "Grading roughly 300 assignments a term taught me that the fix matters less than the explanation. I write feedback and code the same way: say what is wrong, then show the path out.",
+    label: "Teaching data structures",
+    context: "Acadia University",
   },
   {
     quote:
-      "Faseelh turned our sustainability reports from vague summaries into precise, data-backed stories. Our donors and partners can finally see the measurable difference their support creates.",
-    name: "Omar Rahman",
-    role: "Partnerships Lead, Earthworks",
+      "At Wayfair I shipped five agent pipelines in n8n instead of one perfect prototype. Getting something into production early is what turned model output into a workflow people could actually run.",
+    label: "Shipping AI pipelines",
+    context: "Wayfair, via Extern",
   },
   {
     quote:
-      "The platform simplified everything — from monitoring local planting sites to sharing progress with our international partners. It gave our small organization a professional edge and built trust with every stakeholder.",
-    name: "Sofia Alvarez",
-    role: "Founder, Community Roots",
-  },
-  {
-    quote:
-      "What stands out about Faseelh is how human it feels. Despite the advanced analytics and dashboards, the platform reminds us that behind every dataset are communities, forests, and real people working together.",
-    name: "Kenji Nakamura",
-    role: "Program Manager, Pacific Restoration",
-  },
-  {
-    quote:
-      "With Faseelh, we no longer guess whether our initiatives make a difference — we can prove it. The transparency and accountability it brings to our environmental projects have strengthened our credibility worldwide.",
-    name: "Leila Mensah",
-    role: "Impact Officer, Horizon Climate Fund",
+      "Businalyst started as a spreadsheet problem, not a Django problem. I build backends by working backwards from the question a user is trying to answer, then designing the API around it.",
+    label: "Building Businalyst",
+    context: "Full-stack analytics app",
   },
 ] as const;

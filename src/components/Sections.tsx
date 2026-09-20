@@ -3,70 +3,46 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { pricing, testimonials } from "@/data/site";
+import { principles, services } from "@/data/site";
 import { faqs } from "@/data/content";
 import { Button, SectionLabel } from "./ui";
 
-export function Pricing() {
-  const [yearly, setYearly] = useState(false);
-
+export function Services() {
   return (
-    <section id="pricing" className="mx-auto max-w-[1280px] px-5 py-16 md:px-8 md:py-24">
-      <SectionLabel>Pricing</SectionLabel>
+    <section id="services" className="mx-auto max-w-[1280px] px-5 py-16 md:px-8 md:py-24">
+      <SectionLabel>What I do</SectionLabel>
       <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <h2 className="max-w-xl text-4xl font-medium tracking-tight md:text-6xl">
-          Simple Plans for Every Mission
+          Ways I Can Help a Team
         </h2>
-        <div className="flex rounded-full bg-soft p-1 text-sm">
-          <button
-            type="button"
-            onClick={() => setYearly(false)}
-            className={`rounded-full px-4 py-2 ${!yearly ? "bg-white shadow-sm" : "text-muted"}`}
-            suppressHydrationWarning
-          >
-            Monthly
-          </button>
-          <button
-            type="button"
-            onClick={() => setYearly(true)}
-            className={`rounded-full px-4 py-2 ${yearly ? "bg-white shadow-sm" : "text-muted"}`}
-            suppressHydrationWarning
-          >
-            Yearly
-          </button>
-        </div>
+        <p className="max-w-sm text-[15px] leading-7 text-muted">
+          Whether it is a co-op term or a single service that needs building, here is the work I
+          take on.
+        </p>
       </div>
       <div className="mt-10 grid gap-4 lg:grid-cols-3">
-        {pricing.map((plan) => (
+        {services.map((service) => (
           <article
-            key={plan.name}
-            className={`rounded-[28px] p-7 ${plan.featured ? "bg-ink text-white" : "bg-white"}`}
+            key={service.name}
+            className={`flex flex-col rounded-[28px] p-7 ${service.featured ? "bg-ink text-white" : "bg-white"}`}
           >
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-lg">{plan.name}</p>
-                <p className={`mt-5 text-5xl font-medium tracking-tight ${plan.featured ? "text-white" : ""}`}>
-                  ${yearly ? plan.yearly : plan.monthly}
-                </p>
-                <p className={`mt-1 text-sm ${plan.featured ? "text-white/60" : "text-muted"}`}>
-                  user/month
-                </p>
-              </div>
-              <Button href="/contact" variant={plan.featured ? "light" : "dark"}>
-                Get Started
-              </Button>
-            </div>
-            <p className={`mt-8 text-sm ${plan.featured ? "text-white/70" : "text-muted"}`}>
-              {plan.audience}
+            <h3 className="text-2xl font-medium tracking-tight">{service.name}</h3>
+            <p className={`mt-2 text-sm ${service.featured ? "text-white/70" : "text-muted"}`}>
+              {service.audience}
             </p>
-            <ul className="mt-6 space-y-3 text-sm">
-              {plan.features.map((feature) => (
+            <ul className="mt-8 space-y-3 text-sm">
+              {service.features.map((feature) => (
                 <li key={feature} className="flex gap-3">
-                  <span className={plan.featured ? "text-white/50" : "text-muted"}>+</span>
+                  <span className={service.featured ? "text-white/50" : "text-muted"}>+</span>
                   {feature}
                 </li>
               ))}
             </ul>
+            <div className="mt-8 pt-2">
+              <Button href="/contact" variant={service.featured ? "light" : "dark"}>
+                Get in touch
+              </Button>
+            </div>
           </article>
         ))}
       </div>
@@ -74,20 +50,20 @@ export function Pricing() {
   );
 }
 
-export function Testimonials() {
+export function Principles() {
   const [index, setIndex] = useState(0);
-  const item = testimonials[index];
+  const item = principles[index];
 
   return (
     <section className="mx-auto max-w-[1280px] px-5 py-16 md:px-8 md:py-24">
-      <SectionLabel>Testimonial</SectionLabel>
+      <SectionLabel>How I work</SectionLabel>
       <h2 className="mt-5 max-w-3xl text-4xl font-medium tracking-tight md:text-6xl">
-        Stories from Our Global Community
+        Lessons That Shape How I Build
       </h2>
       <div className="mt-10 overflow-hidden rounded-[28px] bg-white p-8 md:p-14">
         <AnimatePresence mode="wait">
           <motion.blockquote
-            key={item.name}
+            key={item.label}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
@@ -98,14 +74,14 @@ export function Testimonials() {
         </AnimatePresence>
         <div className="mt-10 flex items-center justify-between">
           <div>
-            <p className="font-medium">{item.name}</p>
-            <p className="text-sm text-muted">{item.role}</p>
+            <p className="font-medium">{item.label}</p>
+            <p className="text-sm text-muted">{item.context}</p>
           </div>
           <div className="flex gap-2">
             <button
               type="button"
-              aria-label="Previous testimonial"
-              onClick={() => setIndex((i) => (i - 1 + testimonials.length) % testimonials.length)}
+              aria-label="Previous principle"
+              onClick={() => setIndex((i) => (i - 1 + principles.length) % principles.length)}
               className="grid size-11 place-items-center rounded-full border border-line"
               suppressHydrationWarning
             >
@@ -113,8 +89,8 @@ export function Testimonials() {
             </button>
             <button
               type="button"
-              aria-label="Next testimonial"
-              onClick={() => setIndex((i) => (i + 1) % testimonials.length)}
+              aria-label="Next principle"
+              onClick={() => setIndex((i) => (i + 1) % principles.length)}
               className="grid size-11 place-items-center rounded-full border border-line"
               suppressHydrationWarning
             >

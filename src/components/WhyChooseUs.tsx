@@ -1,15 +1,15 @@
 import { SectionLabel } from "./ui";
 import { ImageCompare } from "./ImageCompare";
-import { features, images } from "@/data/site";
+import { features, images, skills } from "@/data/site";
 
 export function WhyChooseUs() {
   const [first, second, third] = features;
 
   return (
-    <section id="why-choose" className="mx-auto max-w-[1280px] px-5 py-20 md:px-8 md:py-28">
-      <SectionLabel>Why choose us</SectionLabel>
+    <section id="approach" className="mx-auto max-w-[1280px] px-5 py-20 md:px-8 md:py-28">
+      <SectionLabel>How I build</SectionLabel>
       <h2 className="mt-5 max-w-3xl text-[40px] leading-[1.08] font-medium tracking-tight md:text-[56px]">
-        A Platform Built on Trust and Transparency
+        Backends Built to Stay Readable
       </h2>
 
       <div className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_minmax(300px,380px)] lg:grid-rows-[minmax(300px,1fr)_minmax(340px,1.2fr)] lg:gap-5">
@@ -39,6 +39,19 @@ export function WhyChooseUs() {
         </article>
 
         <ImageCompare className="min-h-[480px] lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:min-h-full" />
+      </div>
+
+      <div className="mt-5 grid gap-4 rounded-[32px] bg-white p-8 md:grid-cols-2 md:p-10 lg:grid-cols-4">
+        {skills.map((group) => (
+          <div key={group.group}>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-muted">{group.group}</p>
+            <ul className="mt-4 space-y-2 text-[15px] leading-6">
+              {group.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
   );

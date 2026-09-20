@@ -7,7 +7,7 @@ export default async function Legal({ slug }: { slug: string }) {
   if (!page) notFound();
   return (
     <div className="mx-auto max-w-3xl px-5 pb-24 pt-10 md:px-8">
-      <div className="prose-faseelh" dangerouslySetInnerHTML={{ __html: page.content }} />
+      <div className="prose-article" dangerouslySetInnerHTML={{ __html: page.content }} />
     </div>
   );
 }

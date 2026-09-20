@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { site } from "@/data/site";
 
 type ButtonProps = {
   href?: string;
@@ -80,7 +81,7 @@ export function Logo({ className = "" }: { className?: string }) {
           <path d="M7 3.5 12 8l5-4.5L21.5 8 12 16.5 2.5 8 7 3.5Zm0 9L12 17l5-4.5 4.5 4.5L12 22.5 2.5 17 7 12.5Z" />
         </svg>
       </span>
-      <span className="text-[17px] font-medium tracking-tight">Faseelh</span>
+      <span className="text-[17px] font-medium tracking-tight">{site.short}</span>
     </Link>
   );
 }

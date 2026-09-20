@@ -1,6 +1,8 @@
-# Faseelh — code recreation
+# Nish Patel — backend developer portfolio
 
-Pixel-faithful frontend recreation of the [Faseelh Framer template](https://faseelh.framer.website/), rebuilt in Next.js so you can edit it as a normal codebase and adapt it into your portfolio.
+Personal portfolio for Nish Patel, a computer science student at Acadia University working on Django and REST backends, AI agent pipelines, and data tools.
+
+The visual design is a coded adaptation of the [Faseelh Framer template](https://faseelh.framer.website/) by Mejed Alkoutaini / Templyo, rebuilt in Next.js and rewritten around my own experience, projects, and education.
 
 ## Stack
 
@@ -19,20 +21,21 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## What is included
+## Pages
 
-- Home: hero, about, image comparison, programs carousel, why choose us, awards, pricing, testimonials, FAQs, journal
-- Awards listing + award detail pages
-- Blog listing + article pages
-- Contact form
+- Home: hero, about, projects carousel, how I build + skills, experience, education, services, principles, FAQs, notes
+- `/experience` and `/experience/[slug]` — roles with detailed write-ups
+- `/blog` and `/blog/[slug]` — short notes
+- `/contact` — contact details and a local-only form
 - Privacy, terms, refund, and 404 pages
-- CMS-style content in `src/data/cms.json` and `src/data/site.ts`
 
-## Customize for your portfolio
+## Where the content lives
 
-1. Replace copy and name in `src/data/site.ts`
-2. Swap awards, articles, and FAQs in `src/data/cms.json`
-3. Point image URLs to your own work, or add files under `public/`
-4. Update contact details, social links, and metadata in `src/app/layout.tsx`
+| What | File |
+| --- | --- |
+| Name, contact, nav, skills, services, principles | `src/data/site.ts` |
+| Experience, projects, education, FAQs, notes, legal | `src/data/cms.json` |
+| Typed accessors (`getExperience`, `getProject`, …) | `src/data/content.ts` |
+| Resume download | `public/resume.pdf` |
 
-Original design by Mejed Alkoutaini / Templyo. This repo is a coded reconstruction for personal customization, not a Framer export.
+To update the site, edit those data files — the pages read from them.
